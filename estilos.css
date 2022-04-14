@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap');
+:root{
+    --gris: rgb(33, 33, 33);
+    --lila: rgb(188, 134, 188);
+    --degradado:linear-gradient(90deg, var(--lila), var(--gris));
+}
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+}
+
+/* ESTO LO PUSE PQ NO SE VEIA EL TEXTO DE INICIO SINO
+
+#inicio{  
+    padding-top: 75px;
+    color: var(--gris);
+} */
+
+*::selection{
+     background: var(--lila);
+     color: white;
+}
+
+html{
+    font-size: 62.4%;
+    overflow: auto;
+}
+
+body{
+    background: greenyellow;
+}
+
+section{
+    min-height: 100vh;
+    padding: 0 9%;
+    padding-top: 100;
+    padding-bottom: 2rem;
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .8rem 3rem;
+    border-radius: 5rem;
+    background: var(--degradado);
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .5);
+    transition: all .3s ease;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+
+header{
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: greenyellow;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header .logo{
+    font-size: 2rem;
+    color: var(--gris);
+
+}
+
+header .logo span{
+    color: var(--lila);
+}
+
+header .logo:hover{
+    animation: shadowshine 500ms linear infinite;
+}
+
+@keyframes shadowshine{
+    0%, 100%{
+        text-shadow: 3px 0px darkgray;
+    }
+    25%{
+        text-shadow: 0px 2px gray;
+    }
+    50%{
+        text-shadow: -3px 0px gray;
+    }
+    75%{
+        text-shadow: 0px -2px gray;
+    }
+}
+
+header .navbar a{
+    font-size: 1.8rem;
+    margin-left: 2rem;
+    color: var(--gris);
+
+}
+
+header .navbar a:hover{
+    color: var(--lila);
+}
+
+header input{
+    display: none;
+}
+
+header label{
+    font-size: 3rem;
+    color: var(--gris);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.inicio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../img/inicio_fondo.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.inicio .image img{
+    width: 40vw;
+    animation-name: float;
+    animation-duration: 3000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.inicio .image img:hover{
+    animation-name: beat;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
+}
+
+@keyframes float{
+    0%, 100%{
+        transform: translateY(0rem);
+    }
+    50%{
+        transform: translateY(-3.5rem);
+    }
+}
+
+@keyframes spin{
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes beat{
+    0%, 100%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+}
+
+
+.inicio .content h3{
+    font-size: 5.5rem;
+    color: #333;
+    text-transform: uppercase;
+    
+}
+
+.inicio .content h3:hover{
+    animation: shadowshine 3s linear infinite;
+}
+
+.inicio .content h3 span{
+    color: var(--lila);
+    text-transform: uppercase;
+}
+
+
+.inicio .content p{
+    font-size: 1.7rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
+.inicio .content p:hover{
+    animation: crazy 7s linear infinite;
+}
+
+@keyframes crazy{
+    0%, 100%{
+        color: lightcoral;
+    }
+    10%{
+        color: lime;
+    }
+    20%{
+        color: mediumvioletred;
+    }
+    30%{
+        color: aquamarine;
+    }
+    40%{
+        color: blueviolet;
+    }
+    50%{
+        color: cadetblue;
+    }
+    60%{
+        color: darkorange;
+    }
+    70%{
+        color: firebrick;
+    }
+    80%{
+        color: gold;
+    }
+    90%{
+        color: hotpink;
+    }
+}
+
+footer{
+    padding: 16px;
+    text-align: right;font-size: 12px;
+}
+
+@media(max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+}
+
+@media(max-width:768px){
+    header label{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    header .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: greenyellow;
+        padding: 1rem 2rem;
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        transition: .2s linear;
+    }
+
+    header .navbar a{
+        display: block;
+        margin: 2rem 0;
+        font-size: 2rem;
+    }
+
+    header input:checked ~ .navbar{
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    header input:checked ~ label::before{
+        content: '\f00d';
+    }
+
+    .inicio{
+        flex-flow: column-reverse;
+    }
+
+    .inicio .image img{
+        width: 100%;
+
+    }
+
+    .inicio .content h3{
+        font-size: 3.6rem;
+    }
+
+    .inicio .content p{
+        font-size: 1.5rem;
+    }
+}
+
+@media(max-width:450px){
+    html{
+        font-size: 49%;
+    }
+}
